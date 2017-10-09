@@ -86,6 +86,20 @@ function printQuestionMarks(num) {
   
         cb(result);
       });
+    },
+    delete: function(table, objColVals, cb){
+      var queryString = "DELETE FROM" + table +"WHERE id = "; 
+       queryString += objToSql(objColVals);
+
+      
+      connection.query(queryString, function(err,result){
+        if (err) {
+          throw err;
+        }
+  
+        cb("deleted", result);
+      });
+
     }
   };
   

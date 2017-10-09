@@ -1,0 +1,54 @@
+$(function() {
+    $(".reItem").on("click", function(event) {
+      var id = $(this).data("itemid");
+        
+      // Send the PUT request.
+      $.ajax("/api/items/" + id, {
+        type: "PUT"
+        
+      }).then(
+        function() {
+          console.log("recycled item", id);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+  
+    $("#inputItem").on("submit", function(event) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+  
+      var newItem = {
+        item: $("#inputItem [name=item]").val().trim()
+      };
+  
+      // Send the POST request.
+      $.ajax("/api/items", {
+        type: "POST",
+        data: newItem
+      }).then(
+        function() {
+          console.log("created new item");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+    $(".deItem").on("click", function(event) {
+        event.preventDefault();
+        var id = $(this).data("itemid");
+    
+        $.ajax("/totrash/" + id, {
+          type: "DELETE"
+        }).then(
+          function() {
+            console.log("deleted id ", id);
+            location.reload();
+          }
+        );
+      });
+
+
+  });
+  

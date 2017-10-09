@@ -1,5 +1,5 @@
 var express = require("express");
-
+var connection = require("../config/connection.js");
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
@@ -9,39 +9,45 @@ var recycle = require("../models/recycler.js");
 router.get("/", function(req, res) {
   recycle.all(function(data) {
     var hbsObject = {
-      cats: data
+      items: data
     };
     console.log(hbsObject);
-    res.render("index", hbsObject);
+    res.render("index", { recycle: hbsObject.items});
   });
 });
 
-router.post("/api/cats", function(req, res) {
+router.post("/api/items", function(req, res) {
     recycle.create([
-    "name", "sleepy"
+    "item"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.item
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
-router.put("/api/cats/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+router.put("/api/items/:id", function(req, res) {
+  var id = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  console.log("item id", id);
 
-  recycle.update({
-    sleepy: req.body.sleepy
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
+});
+
+router.delete("/totrash/:id", function(req, res){
+//was having trouble using the delete method from orm
+    connection.query("DELETE FROM recycle WHERE id = ?", [req.params.id], function(err, result) {
+        if (err) {
+          
+          return res.status(500).end();
+        } else if (result.affectedRows == 0) {
+          
+          return res.status(404).end();
+        } else {
+          res.status(200).end();
+        }
+      });
+
 });
 
 // Export routes for server.js to use.

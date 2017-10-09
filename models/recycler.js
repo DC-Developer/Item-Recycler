@@ -16,6 +16,12 @@ var recycle = {
     orm.update("recycle", objColVals, condition, function(res) {
       cb(res);
     });
+  },
+  delete: function(objColVals, cb){
+     orm.delete("recycle", objColVals, function(res){
+        cb(res);
+
+     }); 
   }
 };
 
