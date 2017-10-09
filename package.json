@@ -1,0 +1,28 @@
+{
+  "name": "item-recycler",
+  "version": "1.0.0",
+  "description": "Recycles items.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DC-Developer/Item-Recycler.git"
+  },
+  "author": "Dion Cavanaugh <dioncavanaugh@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DC-Developer/Item-Recycler/issues"
+  },
+  "homepage": "https://github.com/DC-Developer/Item-Recycler#readme",
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "express": "4.16.1",
+    "express-handlebars": "3.0.0",
+    "mysql": "2.15.0",
+    "nodemon": "1.12.1",
+    "router": "1.3.2"
+  }
+}

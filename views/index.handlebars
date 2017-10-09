@@ -1,0 +1,48 @@
+<div id="grid">
+
+
+<div id="col-1">
+    
+    <h4 id="label">Input Item to be recycled</h4>
+    <form id="inputItem" class="button-size">
+  <textarea type="text" name="item"></textarea>
+  <br>
+  <button type="submit">Save Item!</button>
+</form>
+</div>
+
+<div id="col-2">
+    <h1>Recycle It!</h1>
+    <br><br>
+    <ul style = "list-style: none;">
+    {{#each recycle}}
+    <li>
+        <h3 id="itemHolder">
+            {{this.item}}
+
+        <button data-itemid="{{this.id}}" class="reItem">Recycle</button><button data-itemid="{{this.id}}" class="deItem">Delete</button>
+        </h3>
+    </li>
+    {{/each}}
+    </ul>
+    <br><br>
+    
+</div>
+
+<div id="col-3">
+    <h2>Recycled Items</h2>
+    <ul style = "list-style: none;">
+    {{#each recycled}}
+    <li>
+        <h3 id="itemHolder">
+            {{this.item}}
+
+       <button data-itemid="{{this.id}}" class="deItem">Delete</button>
+        </h3>
+    </li>
+    {{/each}}
+    </ul>
+</div>
+
+
+</div>
