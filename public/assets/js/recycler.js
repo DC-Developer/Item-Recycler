@@ -1,18 +1,24 @@
 $(function() {
     $(".reItem").on("click", function(event) {
       var id = $(this).data("itemid");
-        
+      var newStatus = $(this).data("newstatus");
+
+      var newStatusState ={
+          recycled: newStatus
+      };
+
       // Send the PUT request.
       $.ajax("/api/items/" + id, {
-        type: "PUT"
-        
+        type: "PUT",
+        data: newStatusState
       }).then(
         function() {
-          console.log("recycled item", id);
+          console.log("recycled item", newStatus);
           // Reload the page to get the updated list
           location.reload();
         }
       );
+      $(this).remove();
     });
   
     $("#inputItem").on("submit", function(event) {

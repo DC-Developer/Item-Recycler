@@ -20,7 +20,7 @@
         <h3 id="itemHolder">
             {{this.item}}
 
-        <button data-itemid="{{this.id}}" class="reItem">Recycle</button><button data-itemid="{{this.id}}" class="deItem">Delete</button>
+        <button data-itemid="{{this.id}}" class="reItem" name ="recycled" val = "1">Recycle</button><button data-itemid="{{this.id}}" class="deItem">Delete</button>
         </h3>
     </li>
     {{/each}}
@@ -31,17 +31,13 @@
 
 <div id="col-3">
     <h2>Recycled Items</h2>
-    <ul style = "list-style: none;">
-    {{#each recycled}}
-    <li>
-        <h3 id="itemHolder">
-            {{this.item}}
-
-       <button data-itemid="{{this.id}}" class="deItem">Delete</button>
-        </h3>
-    </li>
-    {{/each}}
-    </ul>
+    <ul>
+  {{#each recycle}}
+    {{#if recycled}}
+      {{> recycle/item-block recycled=false}}
+    {{/if}}
+  {{/each}}
+</ul>
 </div>
 
 

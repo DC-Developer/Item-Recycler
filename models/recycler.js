@@ -12,8 +12,8 @@ var recycle = {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("recycle", objColVals, condition, function(res) {
+  update: function(objColVals,status, cb) {
+    orm.update("recycle",objColVals, status, function(res) {
       cb(res);
     });
   },

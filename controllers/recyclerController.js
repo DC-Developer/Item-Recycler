@@ -28,11 +28,19 @@ router.post("/api/items", function(req, res) {
 });
 
 router.put("/api/items/:id", function(req, res) {
-  var id = "id = " + req.params.id;
-
-  console.log("item id", id);
-
-});
+    //could not for the life of me code an orm method for this
+    connection.query("UPDATE recycle SET recycled = true WHERE id = ?", [req.params.id], function(err, result) {
+        if (err) {
+          
+          return res.status(500).end();
+        } else if (result.affectedRows == 0) {
+          
+          return res.status(404).end();
+        } else {
+          res.status(200).end();
+        }
+      });
+  });
 
 router.delete("/totrash/:id", function(req, res){
 //was having trouble using the delete method from orm
