@@ -2,7 +2,7 @@
     padding: 0; 
     box-sizing: border-box; }
 body{
-    background-image: url("");
+    background-image: url("https://raw.githubusercontent.com/DC-Developer/Item-Recycler/master/public/assets/imgs/recycle.jpg");
 }
 li{
     background: grey;
