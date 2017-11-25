@@ -42,7 +42,6 @@ router.put("/api/items/:id", function(req, res) {
   });
 
 router.delete("/totrash/:id", function(req, res){
-//was having trouble using the delete method from orm
     connection.query("DELETE FROM recycle WHERE id = ?", [req.params.id], function(err, result) {
         if (err) {
           
@@ -56,6 +55,21 @@ router.delete("/totrash/:id", function(req, res){
       });
 
 });
+
+router.delete("/emptyItems/", function(req, res){
+      connection.query("DELETE FROM recycle WHERE recycled = true", function(err, result) {
+          if (err) {
+            
+            return res.status(500).end();
+          } else if (result.affectedRows == 0) {
+            
+            return res.status(404).end();
+          } else {
+            res.status(200).end();
+          }
+        });
+  
+  });
 
 // Export routes for server.js to use.
 module.exports = router;

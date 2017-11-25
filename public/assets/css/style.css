@@ -27,7 +27,7 @@ li{
     color: rgb(245, 244, 244);
 }
 #label{
-    padding-top: 35rem;
+    padding-top: 15rem;
 }
 #textarea{
     width: 100%;
@@ -80,7 +80,24 @@ li{
     display: inline-block;
     font-size: 10px;
     border-radius: 4px;
+    width: 100%;
 }
 .saveItem:hover{
     background-color: rgba(60, 125, 245, 0.85); 
+}
+.clearItems{
+    background-color: rgb(245, 60, 60); 
+    border: none;
+    color: white;
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+.clearItems:hover{
+    background-color: rgba(245, 60, 60,0.85); 
 }

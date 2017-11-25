@@ -27,9 +27,9 @@ $(function() {
       event.preventDefault();
   
       var newItem = {
-        item: $("#inputItem [name=item]").val().trim()
+        item: $("#inputItem [name=item]").val().trim(),
+
       };
-  
       // Send the POST request.
       $.ajax("/api/items", {
         type: "POST",
@@ -55,6 +55,18 @@ $(function() {
           }
         );
       });
+
+      $(".clearItems").on("click", function(e){
+        e.preventDefault();
+        
+        $.ajax("/emptyItems/", {
+          type: "DELETE"
+        }).then(
+          function() {
+            location.reload();
+          }
+        );
+      })
 
 
   });

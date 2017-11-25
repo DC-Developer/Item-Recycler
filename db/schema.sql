@@ -6,6 +6,5 @@ CREATE TABLE recycle(
     id int NOT NULL AUTO_INCREMENT,
     item varchar(255) NOT NULL,
     recycled BOOLEAN DEFAULT false,
-    toRecycle BOOLEAN DEFAULT true,
     PRIMARY KEY(id)
 );
