@@ -28,7 +28,6 @@ router.post("/api/items", function(req, res) {
 });
 
 router.put("/api/items/:id", function(req, res) {
-    //could not for the life of me code an orm method for this
     connection.query("UPDATE recycle SET recycled = true WHERE id = ?", [req.params.id], function(err, result) {
         if (err) {
           

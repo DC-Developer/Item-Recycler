@@ -1,7 +1,8 @@
 $(function() {
-    $(".reItem").on("click", function(event) {
+    $(".reItem").on("click", function(e) {
+      console.log('you clicked recycle');
       var id = $(this).data("itemid");
-      var newStatus = $(this).data("newstatus");
+      var newStatus = $(this).data("status");
 
       var newStatusState ={
           recycled: newStatus
