@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid text-center">
+<div class="headerDiv">
   <h1>Recycle It!</h1>
 </div>
 
@@ -9,22 +9,25 @@
 <div id="grid">
 
 <div id="col-1">
-    
     <h3 id="label" style="text-align: center;">Input Item to be recycled</h3>
+    <hr>
     <form id="inputItem" class="button-size">
   <textarea type="text" name="item" id="textarea"></textarea>
   <br>
   <button type="submit" class="saveItem"><h4>Save Item!</h4></button>
 </form>
 <div>
-  <h3 style="text-align: center;">Clear Recycle Bin</h3>
+  <hr>
+  <h3 id ="clear"style="text-align: center;">Clear Recycle Bin</h3>
+  <hr>
   <button class="clearItems"><h3>Empty</h3></button>
 </div>
 
 </div>
 
 <div id="col-2">
-    <h2 style="text-align: center;">Recycle: </h2>
+    <h2 id="midCol"style="text-align: center;">Recycle: </h2>
+    <hr>
     <br><br>
     <ul style = "list-style: none;">
     {{#each recycle}}
@@ -42,7 +45,8 @@
 </div>
 
 <div id="col-3">
-    <h2 style="text-align: center;">Recycled Items: </h2>
+    <h2 id="lastCol" style="text-align: center;">Recycled Items: </h2>
+    <hr>
     <ul style = "list-style: none;">
   {{#each recycle}}
     {{#if recycled}}
