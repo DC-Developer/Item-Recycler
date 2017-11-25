@@ -70,10 +70,12 @@ function printQuestionMarks(num) {
       });
     },
     // An example of objColVals would be {name: panther, sleepy: true}
-    update: function(table, status, cb) {
+    update: function(table, objColVals, status, cb) {
       var queryString = "UPDATE " + table;
   
-      queryString += " SET recycled = 1 WHERE";
+      queryString += " SET ";
+      queryString += objToSql(objColVals);
+      queryString += " WHERE ";
       queryString += status;
   
       console.log(queryString);

@@ -18,7 +18,7 @@ $(function() {
           location.reload();
         }
       );
-    $(this).empty();
+    
     });
   
     $("#inputItem").on("submit", function(event) {
